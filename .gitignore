@@ -2,3 +2,6 @@
 
 .vagrant/
 
+# need to look into a way to selectively disable this logging
+ubuntu-xenial-16.04-cloudimg-console.log
+

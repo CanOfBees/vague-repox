@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # update our packages
-sudo apt-get update
+sudo apt-get --quiet update
 
 ## preconfigure our mysql passwords
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password vagrant'

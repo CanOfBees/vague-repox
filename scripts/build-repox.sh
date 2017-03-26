@@ -6,8 +6,16 @@
 # then restart tomcat.
 
 # grab the latest release from europeana's github repoxitory (ha ha ha)
-echo "** cloning repox **"
-git clone https://github.com/europeana/repox
+echo "** checking repox **"
+if [ ! -d "/home/ubuntu/repox" ]; then
+    echo "** cloning repox **"
+	git clone https://github.com/europeana/repox
+else
+	echo "** we already have repox -- let's update it **"
+	cd /home/ubuntu/repox || exit
+	git pull
+	cd /home/ubuntu
+fi
 
 # update the repox configuration file
 echo "** updating configuration.properties **"

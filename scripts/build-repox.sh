@@ -22,7 +22,7 @@ echo "** updating configuration.properties **"
 cp /vagrant/config-files/configuration.properties /home/ubuntu/repox/resources/src/main/resources/
 
 echo "** updating Swagger UI username and password **"
-cp /vagrant/config-files/security.xml /home/ubuntu/repox/server/src/main/webapp/WEB-INF/
+cp /vagrant/config-files/security.xml /home/ubuntu/repox/server/rest-jersey/src/main/webapp/WEB-INF/
 
 # create repox data and configuration directories
 echo "** adding new directories **"

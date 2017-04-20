@@ -2,7 +2,7 @@ Vagrant.configure("2") do |config|
 
   # our box
   # grab a xenial64, 16.04 LTS, box for OpenJDK 8
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "geerlingguy/ubuntu1604"
   # a name
   config.vm.hostname = "testing-repox"
 

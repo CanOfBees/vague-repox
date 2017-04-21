@@ -23,6 +23,7 @@ Vagrant.configure("2") do |config|
   # shell scripts for configuring the box
   config.vm.provision :shell, path: "./scripts/add-packages.sh", :args => shared_dir, :privileged => false
   config.vm.provision :shell, path: "./scripts/build-repox.sh", :args => shared_dir, :privileged => false
+  config.vm.provision :shell, path: "./scripts/python.sh", :args => shared_dir, :privileged => false
 end
 
 

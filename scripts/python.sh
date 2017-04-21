@@ -10,3 +10,5 @@ echo "Install Python Libraries"
 pip3 install requests
 pip3 install pyyaml
 
+echo "Create Aggregators, Providers, Datasets, and Harvest!"
+

@@ -1,0 +1,37 @@
+Authorization:
+  username: admin
+  password: admin
+Aggregator:
+  id: "dltn"
+  name: "DLTN Test"
+  nameCode: "dltn"
+  homepage: "http://localhost:8080/repox"
+Providers:
+  - aggregator_id: "dltn"
+    provider:
+      id: "utk"
+      name: "UniversityofTennesseeLibraries"
+      country: "United States"
+      countryCode: ""
+      description: "Not sure"
+      homepage: "http://digital.lib.utk.edu"
+      providerType: "LIBRARY"
+Sets:
+  - providerId: "utk"
+    set:
+      containerType: "DEFAULT"
+      dataSource:
+        dataSetType: "OAI"
+        id: "adams"
+        schema: "http://www.loc.gov/standards/mods/v3/mods-3-5.xsd"
+        namespace: "http://www.loc.gov/mods/v3"
+        description: "utk_adams"
+        metadataFormat: "mods"
+        isSample: false
+        exportDir: "/home/vagrant/"
+        recordIdPolicy:
+          IdProvided: {}
+        oaiSourceURL: "http://dloai.lib.utk.edu/cgi-bin/XMLFile/dlmodsoai/oai.pl"
+        oaiSet: "adams"
+      nameCode: "utk_adams"
+      name: "utk_adams"

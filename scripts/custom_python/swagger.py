@@ -19,7 +19,7 @@ def create_provider(config, provider):
     print(provider["provider"])
     r = requests.post(url, data=json.dumps(provider["provider"]), auth=(config["Authorization"]["username"], config["Authorization"]["password"]), headers=headers)
     if r.status_code == 201:
-        print("Successfully created provider: {0}".format(config["Providers"][provider]["name"]))
+        print("Successfully created provider.")
     elif r.status_code == 409:
         print("Provider already exists!")
     else:

@@ -27,6 +27,7 @@ cp /vagrant/config-files/security.xml ~/repox/server/rest-jersey/src/main/webapp
 # create repox data and configuration directories
 echo "** adding new directories **"
 sudo mkdir -p /data/repoxData/{repository,configuration,\[temp\]OAI-PMH_Requests,\[temp\]FTP_Requests,\[temp\]HTTP_Requests,export}
+sudo cp /vagrant/config-files/metadataSchemas.xml /data/repoxData/configuration/metadataSchemas.xml
 sudo chown -R tomcat8:tomcat8 /data
 
 # build repox

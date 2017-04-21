@@ -2,6 +2,7 @@ import requests
 import yaml
 import json
 
+
 def create_aggregator(config):
     url = "http://localhost:8080/repox/rest/aggregators"
     headers = {'content-type': 'application/json'}
@@ -12,6 +13,7 @@ def create_aggregator(config):
         print("Could not create aggregator. It already exists.")
     else:
         print("There was a problem creating your aggregator.")
+
 
 def create_provider(config, provider):
     url = "http://localhost:8080/repox/rest/providers?aggregatorId={0}".format(provider['aggregator_id'])
@@ -25,6 +27,7 @@ def create_provider(config, provider):
     else:
         print(r.status_code)
 
+
 def create_oai_set(config, oaiset):
     url = "http://localhost:8080/repox/rest/datasets?providerId={0}".format(oaiset["providerId"])
     headers = {'content-type': 'application/json'}
@@ -36,13 +39,15 @@ def create_oai_set(config, oaiset):
     else:
         print(r.status_code)
 
+
 def harvest_set(set, config):
     url = "http://localhost:8080/repox/rest/datasets/{0}/harvest/start?type=full".format(set)
     r = requests.post(url, auth=(config["Authorization"]["username"], config["Authorization"]["password"]))
     if r.status_code == 200:
-        print("Success")
+        print("Successfully harvested set: {0}".format(set))
     else:
         print(r.status_code)
+
 
 if __name__ == "__main__":
     settings = yaml.load(open('../../config-files/config_data.yml', 'r'))
@@ -52,6 +57,3 @@ if __name__ == "__main__":
     for set in settings["Sets"]:
         create_oai_set(settings, set)
         harvest_set(set["set"]["dataSource"]["id"], settings)
-
-
-

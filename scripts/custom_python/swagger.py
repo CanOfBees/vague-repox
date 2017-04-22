@@ -50,7 +50,7 @@ def harvest_set(set, config):
 
 
 if __name__ == "__main__":
-    settings = yaml.load(open('../../config-files/config_data.yml', 'r'))
+    settings = yaml.load(open('/vagrant/config-files/config_data.yml', 'r'))
     create_aggregator(settings)
     for p in settings["Providers"]:
         create_provider(settings, p)

@@ -7,33 +7,34 @@
 
 # grab the latest release from europeana's github repoxitory (ha ha ha)
 echo "** checking repox **"
-if [ ! -d "/home/ubuntu/repox" ]; then
+if [ ! -d "~/repox" ]; then
     echo "** cloning repox **"
 	git clone https://github.com/europeana/repox
 else
 	echo "** we already have repox -- let's update it **"
-	cd /home/ubuntu/repox || exit
+	cd ~/repox || exit
 	git pull
-	cd /home/ubuntu
+	cd ~
 fi
 
 # update the repox configuration file
 echo "** updating configuration.properties **"
-cp /vagrant/config-files/configuration.properties /home/ubuntu/repox/resources/src/main/resources/
+cp /vagrant/config-files/configuration.properties ~/repox/resources/src/main/resources/
 
 echo "** updating Swagger UI username and password **"
-cp /vagrant/config-files/security.xml /home/ubuntu/repox/server/rest-jersey/src/main/webapp/WEB-INF/
+cp /vagrant/config-files/security.xml ~/repox/server/rest-jersey/src/main/webapp/WEB-INF/
 
 # create repox data and configuration directories
 echo "** adding new directories **"
 sudo mkdir -p /data/repoxData/{repository,configuration,\[temp\]OAI-PMH_Requests,\[temp\]FTP_Requests,\[temp\]HTTP_Requests,export}
+sudo cp /vagrant/config-files/metadataSchemas.xml /data/repoxData/configuration/metadataSchemas.xml
 sudo chown -R tomcat8:tomcat8 /data
 
 # build repox
 echo "** building repox **"
 cd repox || exit
 mvn clean install -q -Pproduction
-cd /home/ubuntu
+cd ~
 
 # create mysql database
 echo "** creating a repox database **"

@@ -24,6 +24,9 @@ cp /vagrant/config-files/configuration.properties ~/repox/resources/src/main/res
 echo "** updating Swagger UI username and password **"
 cp /vagrant/config-files/security.xml ~/repox/server/rest-jersey/src/main/webapp/WEB-INF/
 
+echo "** updating the maven configuration file for the repox build **"
+cp /vagrant/config-files/saxon-9.8-pom.xml ~/repox/pom.xml
+
 # create repox data and configuration directories
 echo "** adding new directories **"
 sudo mkdir -p /data/repoxData/{repository,configuration,\[temp\]OAI-PMH_Requests,\[temp\]FTP_Requests,\[temp\]HTTP_Requests,export}

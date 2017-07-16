@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>REPOX-SYSTEM</name>
+	<artifactId>repox-system</artifactId>
+	<groupId>repox</groupId>
+	<version>3.2.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<organization>
+		<name>Instituto Superior Técnico</name>
+		<url>http://www.ist.utl.pt</url>
+	</organization>
+
+	<contributors>
+		<contributor>
+			<name>The European Library</name>
+			<url>http://www.theeuropeanlibrary.org</url>
+		</contributor>
+	</contributors>
+
+	<scm>
+		<connection>scm:git:git://github.com/europeana/repox2.git</connection>
+		<developerConnection>scm:git:git@github.com:europeana/repox2.git</developerConnection>
+		<url>https://github.com/europeana/repox2</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>stzanakis</id>
+			<name>Simon Tzanakis</name>
+			<email>Simon.Tzanakis|@TheEuropeanLibrary.org</email>
+			<organization>The European Library</organization>
+			<organizationUrl>http://www.theeuropeanlibrary.org</organizationUrl>
+			<roles>
+				<role>Software Developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<modules>
+		<module>manager</module>
+		<module>server</module>
+
+		<module>commons</module>
+		<module>gui</module>
+		<module>resources</module>
+		<module>client</module>
+	</modules>
+
+	<properties>
+		<!-- Skip tests by default -->
+		<skipTests>true</skipTests>
+		<java.version>1.7</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Versions -->
+		<repox.repox-manager.version>3.2.1-SNAPSHOT</repox.repox-manager.version>
+		<repox.repox-server.version>3.2.1-SNAPSHOT</repox.repox-server.version>
+		<repox.repox-server-oai.version>3.2.1-SNAPSHOT</repox.repox-server-oai.version>
+		<repox.repox-server-rest.version>2.6.0-SNAPSHOT</repox.repox-server-rest.version>
+		<repox.repox-server-rest-jersey.version>3.2.1-SNAPSHOT</repox.repox-server-rest-jersey.version>
+
+		<repox.repox-commons.version>3.2.1-SNAPSHOT</repox.repox-commons.version>
+		<repox.repox-resources.version>3.2.1-SNAPSHOT</repox.repox-resources.version>
+		<repox.repox-gui.version>3.2.1-SNAPSHOT</repox.repox-gui.version>
+
+		<eu.europeana.definitions.version>1.01</eu.europeana.definitions.version>
+		<postgresql.postgresql.version>9.1-901.jdbc4</postgresql.postgresql.version>
+		<mysql.mysql-connector-java.version>5.1.31</mysql.mysql-connector-java.version>
+		<xml-apis.xml-apis.version>1.4.01</xml-apis.xml-apis.version> <!-- Need this version or else repo-gui fails with AppEngine Error [ java.lang.NoClassDefFoundError. 
+			org/w3c/dom/ElementTraversal ] -->
+		<dom4j.dom4j.version>1.6.1</dom4j.dom4j.version>
+		<junit.junit.version>4.12</junit.junit.version>
+		<org.mockito.mockito-all.version>1.10.8</org.mockito.mockito-all.version>
+		<org.powermock.powermock-module-junit4.version>1.6.1</org.powermock.powermock-module-junit4.version>
+		<org.powermock.powermock-api-mockito.version>1.6.1</org.powermock.powermock-api-mockito.version>
+		<concurrent.concurrent.version>1.3.4</concurrent.concurrent.version>
+		<servlets.com.cos.version>05Nov2002</servlets.com.cos.version>
+		<jaxen.jaxen.version>1.1.6</jaxen.jaxen.version>
+		<opensymphony.sitemesh.version>2.4.2</opensymphony.sitemesh.version>
+		<taglibs.standard.version>1.1.2</taglibs.standard.version>
+		<bsf.bsf.version>2.4.0</bsf.bsf.version>
+		<rhino.js.version>1.7R2</rhino.js.version>
+		<marc4j.marc4j.version>2.6.3</marc4j.marc4j.version>
+		<org.freemarker.freemarker.version>2.3.20</org.freemarker.freemarker.version>
+		<net.sf.saxon.saxon-xpath.version>9.8</net.sf.saxon.saxon-xpath.version>
+		<org.mortbay.jetty.servlet-api-2.5.version>6.1.14</org.mortbay.jetty.servlet-api-2.5.version>
+		<net.sf.saxon.saxon-dom.version>9.8</net.sf.saxon.saxon-dom.version>
+		<xerces.xercesImpl.version>2.11.0</xerces.xercesImpl.version>
+		<net.sourceforge.stripes.stripes.version>1.5.8</net.sourceforge.stripes.stripes.version>
+		<c3p0.c3p0.version>0.9.1.2</c3p0.c3p0.version>
+		<!-- <org.slf4j.slf4j-log4j12.version>1.7.7</org.slf4j.slf4j-log4j12.version> -->
+		<gxt.gxt.version>2.2.5</gxt.gxt.version>
+		<org.mindrot.jbcrypt.version>0.3m</org.mindrot.jbcrypt.version>
+		<rome.rome.version>1.0</rome.rome.version>
+
+		<com.google.gwt.gwt-user.version>2.4.0</com.google.gwt.gwt-user.version>
+		<com.google.gwt.gwt-servlet.version>2.4.0</com.google.gwt.gwt-servlet.version>
+		<com.novell.ldap.jldap.version>2009-10-07</com.novell.ldap.jldap.version>
+		<com.bradrydzewski.gwt-cal.version>0.9.3.1</com.bradrydzewski.gwt-cal.version>
+		<com.allen-sauer.gwt.dnd.gwt-dnd.version>3.3.1</com.allen-sauer.gwt.dnd.gwt-dnd.version>
+		<com.ibm.icu.icu4j.version>53.1</com.ibm.icu.icu4j.version>
+
+		<pt.ist.mdr-mapping-ui-svg.version>0.1.4</pt.ist.mdr-mapping-ui-svg.version>
+		<pt.ist.mdr-system.version>0.1.1</pt.ist.mdr-system.version>
+		<pt.ist.xml-mapping-compiler.version>0.1</pt.ist.xml-mapping-compiler.version>
+		<pt.ist.xslt-om.version>0.1.2</pt.ist.xslt-om.version>
+
+		<log4j.log4j.version>1.2.17</log4j.log4j.version>
+		<log4j.apache-log4j-extras.version>1.2.17</log4j.apache-log4j-extras.version>
+
+		<org.apache.derby.derby.version>10.10.2.0</org.apache.derby.derby.version>
+		<org.apache.commons.commons-compress.version>1.8.1</org.apache.commons.commons-compress.version>
+		<org.apache.derby.derbytools.version>10.10.2.0</org.apache.derby.derbytools.version>
+
+		<javax.mail.mail.version>1.4.7</javax.mail.mail.version>
+		<javax.activation.activation.version>1.1.1</javax.activation.activation.version>
+		<javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
+		<javax.resource.connector.version>1.0</javax.resource.connector.version>
+		<javax.servlet.servlet-api.version>2.5</javax.servlet.servlet-api.version>
+
+		<org.jzkit.a2j.version>2.0.5</org.jzkit.a2j.version>
+		<org.jzkit.jzkit_core.version>3.0.0</org.jzkit.jzkit_core.version>
+		<org.jzkit.jzkit_z3950_plugin.version>3.0.0</org.jzkit.jzkit_z3950_plugin.version>
+
+		<xalan.xalan.version>2.7.2</xalan.xalan.version>
+		<xalan.serializer.version>2.7.2</xalan.serializer.version>
+
+		<commons-codec.commons-codec.version>1.9</commons-codec.commons-codec.version>
+		<commons-collections.commons-collections.version>3.2.1</commons-collections.commons-collections.version>
+		<commons-discovery.commons-discovery.version>0.5</commons-discovery.commons-discovery.version>
+		<commons-io.commons-io.version>2.4</commons-io.commons-io.version>
+		<commons-httpclient.commons-httpclient.version>3.1</commons-httpclient.commons-httpclient.version>
+		<commons-logging.commons-logging.version>1.2</commons-logging.commons-logging.version>
+		<commons-net.commons-net.version>3.3</commons-net.commons-net.version>
+		<commons-pool.commons-pool.version>1.6</commons-pool.commons-pool.version>
+		<commons-dbcp.commons-dbcp.version>1.4</commons-dbcp.commons-dbcp.version>
+		<commons-lang.commons-lang.version>2.6</commons-lang.commons-lang.version>
+		<commons-beanutils.commons-beanutils.version>1.9.2</commons-beanutils.commons-beanutils.version>
+		<commons-configuration.commons-configuration>1.10</commons-configuration.commons-configuration>
+
+		<spring.version>3.2.5.RELEASE</spring.version>
+		<org.springframework.spring-aop.version>${spring.version}</org.springframework.spring-aop.version>
+		<org.springframework.spring-beans.version>${spring.version}</org.springframework.spring-beans.version>
+		<org.springframework.spring-context.version>${spring.version}</org.springframework.spring-context.version>
+		<org.springframework.spring-core.version>${spring.version}</org.springframework.spring-core.version>
+		<org.springframework.spring-jdbc.version>${spring.version}</org.springframework.spring-jdbc.version>
+		<org.springframework.spring-web.version>${spring.version}</org.springframework.spring-web.version>
+		<org.springframework.spring-webmvc.version>${spring.version}</org.springframework.spring-webmvc.version>
+		<org.springframework.spring-context-support.version>${spring.version}</org.springframework.spring-context-support.version>
+		<org.springframework.spring-orm.version>3.2.5.RELEASE</org.springframework.spring-orm.version>
+		<org.springframework.security.spring-security-acl.version>3.2.5.RELEASE</org.springframework.security.spring-security-acl.version>
+		<org.springframework.security.spring-security-core.version>3.2.5.RELEASE</org.springframework.security.spring-security-core.version>
+		<org.springframework.security.spring-security-taglibs.version>3.2.5.RELEASE</org.springframework.security.spring-security-taglibs.version>
+		<org.springframework.security.spring-security-config.version>3.2.5.RELEASE</org.springframework.security.spring-security-config.version>
+		<org.springframework.spring-test.version>${spring.version}</org.springframework.spring-test.version>
+		<org.springmodules.spring-modules-validation.version>0.8a</org.springmodules.spring-modules-validation.version>
+
+		<org.hibernate.hibernate-entitymanager.version>4.3.6.Final</org.hibernate.hibernate-entitymanager.version>
+		<org.hibernate.hibernate-annotations.version>3.5.6-Final</org.hibernate.hibernate-annotations.version>
+		<org.hibernate.hibernate-validator.version>5.1.2.Final</org.hibernate.hibernate-validator.version>
+		<org.hibernate.hibernate-core.version>4.3.6.Final</org.hibernate.hibernate-core.version>
+
+		<com.google.code.gson.gson.version>2.3</com.google.code.gson.gson.version>
+
+		<com.wordnik.swagger-jersey2-jaxrs_2.11.version>1.3.10</com.wordnik.swagger-jersey2-jaxrs_2.11.version>
+		<com.wordnik.swagger-core_2.11.version>1.3.10</com.wordnik.swagger-core_2.11.version>
+
+		<jersey.version>2.17</jersey.version>
+
+		<!-- Plugin Versions -->
+		<org.apache.maven.plugins.maven-release-plugin.version>2.5.1</org.apache.maven.plugins.maven-release-plugin.version>
+		<org.apache.maven.plugins.maven-surefire-plugin.version>2.17</org.apache.maven.plugins.maven-surefire-plugin.version>
+		<org.apache.maven.plugins.maven-compiler-plugin.version>3.1</org.apache.maven.plugins.maven-compiler-plugin.version>
+		<org.apache.maven.plugins.maven-war-plugin.version>2.4</org.apache.maven.plugins.maven-war-plugin.version>
+		<org.apache.maven.plugins.maven-dependency-plugin.version>2.9</org.apache.maven.plugins.maven-dependency-plugin.version>
+		<org.apache.maven.plugins.maven-assembly-plugin.version>2.4.1</org.apache.maven.plugins.maven-assembly-plugin.version>
+		<org.codehaus.mojo.gwt-maven-plugin.version>2.4.0</org.codehaus.mojo.gwt-maven-plugin.version>
+		<org.apache.maven.plugins.maven-resources-plugin.version>2.6</org.apache.maven.plugins.maven-resources-plugin.version>
+		<org.apache.maven.plugins.maven-clean-plugin.version>2.5</org.apache.maven.plugins.maven-clean-plugin.version>
+	</properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>${org.apache.maven.plugins.maven-release-plugin.version}</version>
+					<configuration>
+						<tagNameFormat>v@{project.version}</tagNameFormat>
+						<!-- Specify arguments needed from the command line -->
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<!-- <version>2.12.4</version> -->
+					<version>${org.apache.maven.plugins.maven-surefire-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${org.apache.maven.plugins.maven-compiler-plugin.version}</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<!-- <version>2.3</version> -->
+					<version>${org.apache.maven.plugins.maven-war-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${org.apache.maven.plugins.maven-dependency-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>${org.apache.maven.plugins.maven-assembly-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>gwt-maven-plugin</artifactId>
+					<version>${org.codehaus.mojo.gwt-maven-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${org.apache.maven.plugins.maven-resources-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${org.apache.maven.plugins.maven-clean-plugin.version}</version>
+				</plugin>
+
+				<!-- Boilerplate code for bypassing maven errors(bugs) that are produced 
+					from exlipse for phases and goals -->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-dependency-plugin
+										</artifactId>
+										<versionRange>
+											[2.0,)
+										</versionRange>
+										<goals>
+											<goal>
+												unpack-dependencies
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>com.github.kongchen</groupId>
+										<artifactId>swagger-maven-plugin</artifactId>
+										<versionRange>
+											[2.0,)
+										</versionRange>
+										<goals>
+											<goal>
+												generate
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- REPOX VERISONS -->
+			<dependency>
+				<groupId>repox</groupId>
+				<artifactId>repox-manager</artifactId>
+				<version>${repox.repox-manager.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>repox</groupId>
+				<artifactId>repox-server</artifactId>
+				<version>${repox.repox-server.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>repox</groupId>
+				<artifactId>repox-server-oai</artifactId>
+				<version>${repox.repox-server-oai.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>repox</groupId>
+				<artifactId>repox-server-rest</artifactId>
+				<version>${repox.repox-server-rest.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>repox</groupId>
+				<artifactId>repox-server-rest-jersey</artifactId>
+				<version>${repox.repox-server-rest-jersey.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>repox</groupId>
+				<artifactId>repox-server-rest-jersey</artifactId>
+				<version>${repox.repox-server-rest-jersey.version}</version>
+				<classifier>classes</classifier>
+			</dependency>
+			<dependency>
+				<groupId>repox</groupId>
+				<artifactId>repox-commons</artifactId>
+				<version>${repox.repox-commons.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>repox</groupId>
+				<artifactId>repox-resources</artifactId>
+				<version>${repox.repox-resources.version}</version>
+				<classifier>resources</classifier>
+				<type>zip</type>
+			</dependency>
+			<dependency>
+				<groupId>repox</groupId>
+				<artifactId>repox-gui</artifactId>
+				<version>${repox.repox-gui.version}</version>
+			</dependency>
+
+			<!-- JERSEY Version management -->
+			<dependency>
+				<groupId>org.glassfish.jersey</groupId>
+				<artifactId>jersey-bom</artifactId>
+				<version>${jersey.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- SWAGGER -->
+			<dependency>
+				<groupId>com.wordnik</groupId>
+				<artifactId>swagger-jersey2-jaxrs_2.11</artifactId>
+				<version>${com.wordnik.swagger-jersey2-jaxrs_2.11.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.wordnik</groupId>
+				<artifactId>swagger-core_2.11</artifactId>
+				<version>${com.wordnik.swagger-core_2.11.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgresql.postgresql.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derby</artifactId>
+				<version>${org.apache.derby.derby.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.mysql-connector-java.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>${commons-dbcp.commons-dbcp.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>xalan</groupId>
+				<artifactId>xalan</artifactId>
+				<version>${xalan.xalan.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${commons-lang.commons-lang.version}</version>
+			</dependency>
+			<!--XML Parse Libs -->
+			<dependency>
+				<groupId>xml-apis</groupId>
+				<artifactId>xml-apis</artifactId>
+				<version>${xml-apis.xml-apis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>dom4j</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>${dom4j.dom4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.mail</groupId>
+				<artifactId>mail</artifactId>
+				<version>${javax.mail.mail.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ibm.icu</groupId>
+				<artifactId>icu4j</artifactId>
+				<version>${com.ibm.icu.icu4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.log4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>apache-log4j-extras</artifactId>
+				<version>${log4j.apache-log4j-extras.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.junit.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>${org.mockito.mockito-all.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-module-junit4</artifactId>
+				<version>${org.powermock.powermock-module-junit4.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-api-mockito</artifactId>
+				<version>${org.powermock.powermock-api-mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.activation</groupId>
+				<artifactId>activation</artifactId>
+				<version>${javax.activation.activation.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons-codec.commons-codec.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>${commons-collections.commons-collections.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-discovery</groupId>
+				<artifactId>commons-discovery</artifactId>
+				<version>${commons-discovery.commons-discovery.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons-io.commons-io.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-httpclient</groupId>
+				<artifactId>commons-httpclient</artifactId>
+				<version>${commons-httpclient.commons-httpclient.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>${commons-logging.commons-logging.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-net</groupId>
+				<artifactId>commons-net</artifactId>
+				<version>${commons-net.commons-net.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-pool</groupId>
+				<artifactId>commons-pool</artifactId>
+				<version>${commons-pool.commons-pool.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>concurrent</groupId>
+				<artifactId>concurrent</artifactId>
+				<version>${concurrent.concurrent.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>servlets.com</groupId>
+				<artifactId>cos</artifactId>
+				<version>${servlets.com.cos.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derbytools</artifactId>
+				<version>${org.apache.derby.derbytools.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>jaxen</groupId>
+				<artifactId>jaxen</artifactId>
+				<version>${jaxen.jaxen.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${org.springframework.spring-aop.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${org.springframework.spring-beans.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${org.springframework.spring-context.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${org.springframework.spring-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${org.springframework.spring-jdbc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${org.springframework.spring-web.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${org.springframework.spring-webmvc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${org.springframework.spring-context-support.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>xalan</groupId>
+				<artifactId>serializer</artifactId>
+				<version>${xalan.serializer.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>opensymphony</groupId>
+				<artifactId>sitemesh</artifactId>
+				<version>${opensymphony.sitemesh.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>taglibs</groupId>
+				<artifactId>standard</artifactId>
+				<version>${taglibs.standard.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>bsf</groupId>
+				<artifactId>bsf</artifactId>
+				<version>${bsf.bsf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>rhino</groupId>
+				<artifactId>js</artifactId>
+				<version>${rhino.js.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.resource</groupId>
+				<artifactId>connector</artifactId>
+				<type>pom</type>
+				<version>${javax.resource.connector.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>marc4j</groupId>
+				<artifactId>marc4j</artifactId>
+				<version>${marc4j.marc4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>${commons-beanutils.commons-beanutils.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jzkit</groupId>
+				<artifactId>a2j</artifactId>
+				<version>${org.jzkit.a2j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jzkit</groupId>
+				<artifactId>jzkit_core</artifactId>
+				<version>${org.jzkit.jzkit_core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jzkit</groupId>
+				<artifactId>jzkit_z3950_plugin</artifactId>
+				<version>${org.jzkit.jzkit_z3950_plugin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.freemarker</groupId>
+				<artifactId>freemarker</artifactId>
+				<version>${org.freemarker.freemarker.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sf.saxon</groupId>
+				<artifactId>saxon-xpath</artifactId>
+				<version>${net.sf.saxon.saxon-xpath.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>servlet-api-2.5</artifactId>
+				<version>${org.mortbay.jetty.servlet-api-2.5.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sf.saxon</groupId>
+				<artifactId>saxon-dom</artifactId>
+				<version>${net.sf.saxon.saxon-dom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>xerces</groupId>
+				<artifactId>xercesImpl</artifactId>
+				<version>${xerces.xercesImpl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-compress</artifactId>
+				<version>${org.apache.commons.commons-compress.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>eu.europeana</groupId>
+				<artifactId>definitions</artifactId>
+				<version>${eu.europeana.definitions.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sourceforge.stripes</groupId>
+				<artifactId>stripes</artifactId>
+				<version>${net.sourceforge.stripes.stripes.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>${javax.servlet.jstl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-acl</artifactId>
+				<version>${org.springframework.security.spring-security-acl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-core</artifactId>
+				<version>${org.springframework.security.spring-security-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-taglibs</artifactId>
+				<version>${org.springframework.security.spring-security-taglibs.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-config</artifactId>
+				<version>${org.springframework.security.spring-security-config.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${org.springframework.spring-orm.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${org.hibernate.hibernate-entitymanager.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-annotations</artifactId>
+				<version>${org.hibernate.hibernate-annotations.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${org.hibernate.hibernate-validator.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>c3p0</groupId>
+				<artifactId>c3p0</artifactId>
+				<version>${c3p0.c3p0.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${org.springframework.spring-test.version}</version>
+			</dependency>
+			<!-- <dependency> -->
+			<!-- <groupId>org.slf4j</groupId> -->
+			<!-- <artifactId>slf4j-log4j12</artifactId> -->
+			<!-- <version>${org.slf4j.slf4j-log4j12.version}</version> -->
+			<!-- <version>1.6.1</version> -->
+			<!-- </dependency> -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${org.hibernate.hibernate-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springmodules</groupId>
+				<artifactId>spring-modules-validation</artifactId>
+				<version>${org.springmodules.spring-modules-validation.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>${com.google.code.gson.gson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-configuration</groupId>
+				<artifactId>commons-configuration</artifactId>
+				<version>${commons-configuration.commons-configuration}</version>
+			</dependency>
+
+			<!--Ext GWT Libs -->
+			<dependency>
+				<groupId>gxt</groupId>
+				<artifactId>gxt</artifactId>
+				<version>${gxt.gxt.version}</version>
+				<classifier>gwt22</classifier>
+			</dependency>
+
+			<!--GWT Core Libs -->
+			<dependency>
+				<groupId>com.google.gwt</groupId>
+				<artifactId>gwt-user</artifactId>
+				<version>${com.google.gwt.gwt-user.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.gwt</groupId>
+				<artifactId>gwt-servlet</artifactId>
+				<version>${com.google.gwt.gwt-servlet.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${javax.servlet.servlet-api.version}</version>
+			</dependency>
+
+			<!--Calendar Libs -->
+			<dependency>
+				<groupId>com.bradrydzewski</groupId>
+				<artifactId>gwt-cal</artifactId>
+				<version>${com.bradrydzewski.gwt-cal.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.allen-sauer.gwt.dnd</groupId>
+				<artifactId>gwt-dnd</artifactId>
+				<version>${com.allen-sauer.gwt.dnd.gwt-dnd.version}</version>
+			</dependency>
+
+			<!--Password Gen Lib -->
+			<dependency>
+				<groupId>org.mindrot</groupId>
+				<artifactId>jbcrypt</artifactId>
+				<version>${org.mindrot.jbcrypt.version}</version>
+			</dependency>
+			<!--RSS Lib -->
+			<dependency>
+				<groupId>rome</groupId>
+				<artifactId>rome</artifactId>
+				<version>${rome.rome.version}</version>
+			</dependency>
+
+			<!-- LDAP Libs -->
+			<dependency>
+				<groupId>com.novell.ldap</groupId>
+				<artifactId>jldap</artifactId>
+				<version>${com.novell.ldap.jldap.version}</version>
+			</dependency>
+
+			<!--XMApper Libs -->
+			<dependency>
+				<groupId>pt.ist</groupId>
+				<artifactId>mdr-mapping-ui-svg</artifactId>
+				<version>${pt.ist.mdr-mapping-ui-svg.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>pt.ist</groupId>
+				<artifactId>mdr-system</artifactId>
+				<version>${pt.ist.mdr-system.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>pt.ist</groupId>
+				<artifactId>xml-mapping-compiler</artifactId>
+				<version>${pt.ist.xml-mapping-compiler.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>pt.ist</groupId>
+				<artifactId>xslt-om</artifactId>
+				<version>${pt.ist.xslt-om.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>artifactory.eanadev.org</id>
+			<name>artifactory.eanadev.org-releases</name>
+			<url>http://artifactory.eanadev.org/artifactory/ext-release-local</url>
+		</repository>
+
+		<repository>
+			<id>java.net</id>
+			<url>http://download.java.net/maven/2/</url>
+		</repository>
+
+		<!-- Dead repo, avoid it -->
+		<repository>
+			<id>IST-releases</id>
+			<url>http://digmap3.ist.utl.pt:8080/artifactory/libs-release-local/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<!-- Warsaw repo with old jars. -->
+		<!-- <repository> -->
+		<!-- <id>icm.edu</id> -->
+		<!-- <name>Maven Repository</name> -->
+		<!-- <url>http://maven.icm.edu.pl/artifactory/repo/</url> -->
+		<!-- <layout>default</layout> -->
+		<!-- <snapshots> -->
+		<!-- <enabled>true</enabled> -->
+		<!-- </snapshots> -->
+		<!-- </repository> -->
+	</repositories>
+</project>

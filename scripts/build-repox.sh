@@ -25,7 +25,9 @@ echo "** updating Swagger UI username and password **"
 cp /vagrant/config-files/security.xml ~/repox/server/rest-jersey/src/main/webapp/WEB-INF/
 
 echo "** updating the maven configuration file for the repox build **"
-cp /vagrant/config-files/saxon-9.8-pom.xml ~/repox/pom.xml
+cp /vagrant/config-files/repox-saxon-9.8-pom.xml ~/repox/pom.xml
+echo "** updating the maven configuration file for the repox/manager build **"
+cp /vagrang/config-files/manager-saxon-9.8-pom.xml ~/repox/manager/pom.xml
 
 # create repox data and configuration directories
 echo "** adding new directories **"

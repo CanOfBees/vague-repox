@@ -77,10 +77,10 @@ Sets:
       dataSource:
         dataSetType: "OAI"
         id: "bernhardt"
-        schema: "garbage"
+        schema: "http://www.openarchives.org/OAI/2.0/oai_dc.xsd"
         namespace: "http://purl.org/dc/elements/1.1/"
         description: "bernhardt"
-        metadataFormat: "mods"
+        metadataFormat: "oai_dc"
         isSample: false
         exportDir: "/home/vagrant/"
         recordIdPolicy:

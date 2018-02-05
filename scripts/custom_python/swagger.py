@@ -33,11 +33,11 @@ def create_oai_set(config, oaiset):
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(oaiset["set"]), auth=(config["Authorization"]["username"], config["Authorization"]["password"]), headers=headers)
     if r.status_code == 201:
-        print("Successfully created set: {0}".format(oaiset["set"]["dataSource"]["id"]))
+        print("Successfully created set: {}. Full response: {}".format(oaiset["set"]["dataSource"]["id"], r.text))
     elif r.status_code == 409:
         print("Set already exists!")
     else:
-        print(r.status_code)
+        print("Failed with {} on {}. Full response here: {}.".format(r.status_code, url, r.text))
 
 
 def harvest_set(set, config):
@@ -46,7 +46,7 @@ def harvest_set(set, config):
     if r.status_code == 200:
         print("Successfully harvested set: {0}".format(set))
     else:
-        print(r.status_code)
+        print("Failed with {} on {}".format(r.status_code, url))
 
 
 if __name__ == "__main__":

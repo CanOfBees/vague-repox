@@ -22,16 +22,88 @@ Sets:
       containerType: "DEFAULT"
       dataSource:
         dataSetType: "OAI"
-        id: "adams"
+        id: "volvoices"
         schema: "http://www.loc.gov/standards/mods/v3/mods-3-5.xsd"
         namespace: "http://www.loc.gov/mods/v3"
-        description: "utk_adams"
+        description: "volvoices"
         metadataFormat: "mods"
         isSample: false
         exportDir: "/home/vagrant/"
         recordIdPolicy:
           IdProvided: {}
-        oaiSourceURL: "http://dloai.lib.utk.edu/cgi-bin/XMLFile/dlmodsoai/oai.pl"
-        oaiSet: "adams"
-      nameCode: "utk_adams"
-      name: "utk_adams"
+        oaiSourceURL: "https://dpla.lib.utk.edu/repox/OAIHandler"
+        oaiSet: "volvoices"
+      nameCode: "volvoices"
+      name: "volvoices"
+  - providerId: "utk"
+    set:
+      containerType: "DEFAULT"
+      dataSource:
+        dataSetType: "OAI"
+        id: "bcpl"
+        schema: "http://www.loc.gov/standards/mods/v3/mods-3-5.xsd"
+        namespace: "http://www.loc.gov/mods/v3"
+        description: "bcpl"
+        metadataFormat: "mods"
+        isSample: false
+        exportDir: "/home/vagrant/"
+        recordIdPolicy:
+          IdProvided: {}
+        oaiSourceURL: "https://dpla.lib.utk.edu/repox/OAIHandler"
+        oaiSet: "bcpl"
+      nameCode: "bcpl"
+      name: "bcpl"
+  - providerId: "utk"
+    set:
+      containerType: "DEFAULT"
+      dataSource:
+        dataSetType: "OAI"
+        id: "specialcollections_newspapers"
+        schema: "http://www.openarchives.org/OAI/2.0/oai_dc.xsd"
+        namespace: "http://purl.org/dc/elements/1.1/"
+        description: "specialcollections_newspapers"
+        metadataFormat: "oai_dc"
+        isSample: false
+        exportDir: "/home/vagrant/"
+        recordIdPolicy:
+          IdProvided: {}
+        oaiSourceURL: "https://repository.middlebury.edu/oai2"
+        oaiSet: "specialcollections_newspapers"
+      nameCode: "specialcollections_newspapers"
+      name: "specialcollections_newspapers"
+  - providerId: "utk"
+    set:
+      containerType: "DEFAULT"
+      dataSource:
+        dataSetType: "OAI"
+        id: "bernhardt"
+        schema: "http://www.openarchives.org/OAI/2.0/oai_dc.xsd"
+        namespace: "http://purl.org/dc/elements/1.1/"
+        description: "bernhardt"
+        metadataFormat: "oai_dc"
+        isSample: false
+        exportDir: "/home/vagrant/"
+        recordIdPolicy:
+          IdProvided: {}
+        oaiSourceURL: "https://dpla.lib.utk.edu/repox/OAIHandler"
+        oaiSet: "bernhardt"
+      nameCode: "bernhardt"
+      name: "bernhardt"
+  - providerId: "utk"
+    set:
+      containerType: "DEFAULT"
+      dataSource:
+        dataSetType: "OAI"
+        id: "specialcollections_newspapers"
+        schema: "http://www.openarchives.org/OAI/2.0/oai_dc.xsd"
+        namespace: "http://purl.org/dc/elements/1.1/"
+        description: "specialcollections_newspapers"
+        metadataFormat: "mods"
+        isSample: false
+        exportDir: "/home/vagrant/"
+        recordIdPolicy:
+          IdProvided: {}
+        oaiSourceURL: "https://repository.middlebury.edu/oai2"
+        oaiSet: "specialcollections_newspapers"
+      nameCode: "specialcollections_newspapers2"
+      name: "specialcollections_newspapers2"

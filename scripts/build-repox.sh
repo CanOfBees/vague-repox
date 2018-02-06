@@ -49,6 +49,11 @@ echo "** copying repox to tomcat **"
 sudo cp repox/gui/target/repox.war /var/lib/tomcat8/webapps/
 sudo chown -R tomcat8:tomcat8 /var/lib/tomcat8/webapps/repox.war
 
+# set environmental variable
+echo "set environmental variables"
+sudo cp /vagrant/config-files/setenv.sh /usr/share/tomcat8/bin/
+sudo chmod 777 /usr/share/tomcat8/bin/setenv.sh
+
 # (re)start tomcat
 echo "** starting tomcat **"
 sudo systemctl start tomcat8

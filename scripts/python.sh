@@ -47,4 +47,4 @@ mkdir pyrepox_testing
 cd /home/pyrepox_testing
 pipenv --python 3.7 install
 pipenv shell
-pipenv install repox
+pip install repox

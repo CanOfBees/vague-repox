@@ -47,4 +47,4 @@ mkdir pyrepox_testing
 cd /home/pyrepox_testing
 pipenv --python 3.7 install
 pipenv shell
-pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple repox
+pipenv install repox

@@ -9,7 +9,11 @@
 echo "** checking repox **"
 if [ ! -d "~/repox" ]; then
     echo "** cloning repox **"
-	git clone https://github.com/europeana/repox
+	#git clone https://github.com/europeana/repox
+	git clone https://github.com/CanOfBees/repox
+	cd repox
+	git checkout saxon-he
+	cd ~
 else
 	echo "** we already have repox -- let's update it **"
 	cd ~/repox || exit
@@ -24,10 +28,11 @@ cp /vagrant/config-files/configuration.properties ~/repox/resources/src/main/res
 echo "** updating Swagger UI username and password **"
 cp /vagrant/config-files/security.xml ~/repox/server/rest-jersey/src/main/webapp/WEB-INF/
 
-echo "** updating the maven configuration file for the repox build **"
-cp /vagrant/config-files/repox-saxon-9.8-pom.xml ~/repox/pom.xml
-echo "** updating the maven configuration file for the repox/manager build **"
-cp /vagrant/config-files/manager-saxon-9.8-pom.xml ~/repox/manager/pom.xml
+# We don't need these steps when pulling from my Saxon-HE branch
+#echo "** updating the maven configuration file for the repox build **"
+#cp /vagrant/config-files/repox-saxon-9.8-pom.xml ~/repox/pom.xml
+#echo "** updating the maven configuration file for the repox/manager build **"
+#cp /vagrant/config-files/manager-saxon-9.8-pom.xml ~/repox/manager/pom.xml
 
 # create repox data and configuration directories
 echo "** adding new directories **"
